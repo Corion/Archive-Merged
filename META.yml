@@ -1,0 +1,28 @@
+---
+abstract: 'virtually merge two archives'
+author:
+  - 'Max Maischein <corion@cpan.org>'
+build_requires:
+  ExtUtils::MakeMaker: '0'
+configure_requires:
+  ExtUtils::MakeMaker: '0'
+dynamic_config: 1
+generated_by: 'ExtUtils::MakeMaker version 6.98, CPAN::Meta::Converter version 2.142060'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: '1.4'
+name: Archive-Merged
+no_index:
+  directory:
+    - t
+    - inc
+requires:
+  Exporter: '5'
+  File::Spec: '0'
+  Path::Class: '0'
+  Test::More: '0'
+  perl: '5.006'
+resources:
+  repository: git://github.com/Corion/archive-merged.git
+version: '0.01'
