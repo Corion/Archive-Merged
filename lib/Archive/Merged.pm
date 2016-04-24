@@ -18,6 +18,16 @@ Archive::Merged - virtually merge two archives
 
 =head1 METHODS
 
+=head2 C<< Archive::Merged->new >>
+
+  my $merged = Archive::Merged->new(
+      Archive::Tar->new( 'default_theme.tar' ),
+      Archive::Dir->new( 'customized/' ),
+  );
+
+Creates a new archive as the merged view of one or more archives
+or directories.
+
 =cut
 
 sub new {
@@ -29,13 +39,38 @@ sub new {
     $self
 };
 
+=head2 C<< ->directory >>
+
+=cut
+
 sub directory {
     undef
 };
 
+=head2 C<< ->archives >>
+
+  my @archives = $merged->archives;
+
+Accessor for the archives that represent this archive.
+
+=cut
+
 sub archives {
     @{ $_[0]->{archives} }
 }
+
+=head2 C<< ->contains_file >>
+
+  if( $merged->contains_file( $file ) ) {
+      print "Yay!"
+  } else {
+      print "File '$file' not found";
+  };
+
+Returns the underlying archive that contains the file. Returns
+undef if the file is not found.
+
+=cut
 
 sub contains_file {
     my( $self, $file ) = @_;
@@ -61,6 +96,14 @@ sub get_content {
 };
 
 =head2 C<< ->list_files( ) >>
+
+    my @contents = $merged->list_files;
+
+Lists the contained files of the archive. Files that are shadowed
+are only listed once.
+
+=cut
+
 sub list_files {
     my ($self,$properties) = @_;
     croak "Listing properties is not (yet) implemented"
@@ -77,12 +120,19 @@ sub list_files {
     @files
 }
 
+=head2 C<< ->extract_file( ) >>
+
+    $merged->extract_file( $name => $target );
+
+Extracts the file to the target name.
+
+=cut
+
 sub extract_file {
     my ($self,$file,$target) = @_;
     my $ar = $self->contains_file( $file );
     $ar->extract_file( $file, $target );
 };
-
 
 1;
 
