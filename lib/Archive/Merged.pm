@@ -46,12 +46,21 @@ sub contains_file {
     };
 };
 
+=head2 C<< ->get_content( $file, %options ) >>
+
+  my $content = $merged->get_content( $file, binmode => ':raw' )
+
+Returns the content of the file, potentially with the encoding.
+
+=cut
+
 sub get_content {
-    my( $self, $file ) = @_;
+    my( $self, $file, %options ) = @_;
     my $ar = $self->contains_file( $file );
-    $ar->get_content( $file )
+    $ar->get_content( $file, %options )
 };
 
+=head2 C<< ->list_files( ) >>
 sub list_files {
     my ($self,$properties) = @_;
     croak "Listing properties is not (yet) implemented"

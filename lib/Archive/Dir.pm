@@ -35,7 +35,10 @@ sub contains_file {
 };
 
 sub get_content {
-    $_[0]->directory->file($_[1])->slurp(iomode => '<:raw');
+    my( $self, $file, %options ) = @_;
+    $options{ binmode } ||= ':raw';
+    $options{ binmode } = "<$options{binmode}";
+    $self->directory->file($file)->slurp(iomode => $options{ binmode });
 };
 
 sub list_files {
