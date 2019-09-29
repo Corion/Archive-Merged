@@ -71,7 +71,7 @@ the file system. It completely relies on L<Path::Class> to handle this issue.
 =head1 REPOSITORY
 
 The public repository of this module is
-L<http://github.com/Corion/archive-merged>.
+L<https://github.com/Corion/archive-merged>.
 
 =head1 SUPPORT
 

@@ -24,6 +24,7 @@ requires:
   Path::Class: '0'
   perl: '5.006'
 resources:
+  license: https://dev.perl.org/licenses/
   repository: git://github.com/Corion/Archive-Merged.git
 version: '0.02'
 x_serialization_backend: 'CPAN::Meta::YAML version 0.018'
