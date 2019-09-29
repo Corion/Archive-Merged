@@ -137,7 +137,7 @@ sub extract_file {
 
 =head1 REPOSITORY
 
-The public repository of this module is 
+The public repository of this module is
 L<http://github.com/Corion/archive-merged>.
 
 =head1 SUPPORT
